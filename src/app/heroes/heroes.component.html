@@ -1,0 +1,27 @@
+<!--
+  <div>
+  <label> Name:
+    <input [ngModel]="hero.name |uppercase" (ngModelChange)="hero.name=$event" placeholder="name"/>
+</label>
+</div>
+
+<h2>{{hero.name | uppercase}} details </h2>
+<div><span>id: {{hero.id}}</span></div>
+<div><span>name: {{hero.name}}</span></div>
+-->
+
+<h2>My heroes </h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+  <!--<li *ngFor="let hero of heroes"  [class.selected]="hero === selectedHero"  (click)="onSelect(hero)">-->
+  <!-- les () permettent a angular d'écouter l'élément de li sur lequel on a cliqué-->
+  <!-- == va checker l'égalité alors que === va checker l'égalité ET le type-->
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </a>
+  </li>
+</ul>
+
+<!-- Code pour l'affichage des détails d'un héro selectionné-->
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->
+<!-- plus utilisé car hero detailssera mtn indépendant de heroes.-->
